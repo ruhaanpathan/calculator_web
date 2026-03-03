@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CALC</title>
+
+    <style>
+        body {
+            font-family: Arial,sans-serif;
+            background-color:#f4f4f4;
+            text-align:center;
+            margin-top:80px;
+        }
+
+        div {
+            background: white;
+            display:inline-block;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px 0;
+        }
+
+        input {
+            padding: 5px;
+            width: 150px;
+        }
+
+        button {
+            padding: 5px 10px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ddd;
+        }
+    </style>
+
+</head>
+<body>
+
+<div>
+    <form>
+        <label>Num 1:</label>
+        <input type="text" id="num1"><br><br>
+
+        <label>Num 2:</label>
+        <input type="text" id="num2"><br><br>
+
+        <button type="button" onclick="calc('+')">+</button>
+        <button type="button" onclick="calc('-')">-</button>
+        <button type="button" onclick="calc('*')">*</button>
+        <button type="button" onclick="calc('/')">/</button>
+    </form>
+</div>
+
+<p>Ans: <span id="result"></span></p>
+
+<script>
+function calc(op) {
+    let a = Number(document.getElementById("num1").value);
+    let b = Number(document.getElementById("num2").value);
+    let res;
+
+    if (op ==='+') {
+        res= a+b
+    }
+    else if (op=== '-')
+    { 
+        res =a- b
+    }
+    else if (op ==='*') 
+        {
+            res= a*b
+        }
+    else if(op==='/') {
+        if (b !==0) {
+            res =a/ b;
+        } 
+        else {
+        res ="Error";
+    }
+}
+
+    document.getElementById("result").innerText = res;
+}
+</script>
+
+</body>
+</html>
